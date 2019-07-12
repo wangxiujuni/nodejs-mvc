@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%-include('head')%>
+</head>
+
+<body>
+  <!--头部-->
+  <header class="bg-color">
+    <!--导航-->
+    <nav class="bg-nav">
+      <h1>
+        <%-include('logo')%>
+      </h1>
+      <%-include('menu')%>
+      <div id="menu-btn"></div>
+      <script src="js/menu.js"></script>
+    </nav>
+    <div class="nav-f">
+      <p>当前位置：首页&nbsp;&gt;&nbsp;
+        <span>案例展示</span>
+      </p>
+    </div>
+  </header>
+  <!--案例展示-->
+  <div class="case">
+    <div class="s-title">
+      <h3>案例展示</h3>
+      <p>Case Show</p>
+    </div>
+    <ul>
+      <%Exhibitions.forEach(function(Exhibition){%>
+      <li>
+        <a href="alzsView?id=<%=Exhibition.wzId%>">
+          <div>
+            <img src="api/upload/download?fileName=<%=Exhibition.wzThumb%>" alt="">
+          </div>
+          <div>
+            <h6><%=Exhibition.wzTitle%></h6>
+            <p><%-Exhibition.wzSummary%></p>
+          </div>
+        </a>
+      </li>
+      <%})%>
+    </ul>
+  </div>
+  <!--底部-->
+  <%-include('bottom')%>
+</body>
+
+</html>

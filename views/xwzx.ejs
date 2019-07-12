@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%-include('head')%>
+</head>
+
+<body>
+    <!--头部-->
+    <header class="bg-color">
+        <!--导航-->
+        <nav class="bg-nav">
+            <h1>
+                <%-include('logo')%>
+            </h1>>
+            <%-include('menu')%>
+                <div id="menu-btn"></div>
+                <script src="js/menu.js"></script>
+        </nav>
+        <div class="nav-f">
+            <p>当前位置：首页&nbsp;&gt;&nbsp;
+                <span>新闻中心</span>
+            </p>
+        </div>
+    </header>
+    <!--新闻中心-->
+    <div class="new">
+        <div class="s-title">
+            <h3>新闻中心</h3>
+            <p>New Center</p>
+        </div>
+        <ul class="cl">
+            <%news.forEach(function(newData){%>
+                <li>
+                    <a class="cl" href="xwzxView?id=<%=newData.wzId%>">
+                        <div class="new-img fl">
+                            <img src="api/upload/download?fileName=<%=newData.wzThumb%>" alt="">
+                        </div>
+                        <div class="new-content fl">
+                            <h5>
+                                <%=newData.wzTitle%>
+                            </h5>
+                            <span>
+                                <%=moment(newData.wzCreatedate).format('YYYY-MM-DD')%>
+                            </span>
+                            <p>
+                                <%=newData.wzSummary%>
+                            </p>
+                        </div>
+                    </a>
+                </li>
+                <%})%>
+        </ul>
+    </div>
+    <!--底部-->
+    <%-include('bottom')%>
+</body>
+
+</html>

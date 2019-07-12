@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%-include('head')%>
+</head>
+
+<body>
+  <!--头部-->
+  <header class="bg-color">
+    <!--导航-->
+    <nav class="bg-nav">
+      <h1>
+        <%-include('logo')%>
+      </h1>
+      <%-include( 'menu')%>
+        <div id="menu-btn"></div>
+        <script src="js/menu.js"></script>
+    </nav>
+    <div class="nav-f">
+      <p>当前位置：首页&nbsp;&gt;&nbsp;
+        <span>产品类型</span>
+      </p>
+    </div>
+  </header>
+  <!--产品类型-->
+  <div class="product">
+    <div class="s-title">
+      <h3>产品类型</h3>
+      <p>Product Type</p>
+    </div>
+    <ul>
+      <%characteristics.forEach(function(characteristic){%>
+        <li>
+          <div>
+            <img src="api/upload/download?fileName=<%=characteristic.wzThumb%>" alt="">
+          </div>
+          <h6>
+            <%=characteristic.wzTitle%>
+          </h6>
+          <p>
+            <%-characteristic.wzSummary%>
+          </p>
+        </li>
+        <%})%>
+    </ul>
+  </div>
+  <div class="product-type">
+    <%buttons.forEach(function(button){%>
+      <%-button.pgContent%>
+        <%})%>
+          <div id="product-content" class="product-content">
+            <div id="product-box">
+              <%fCplists.forEach(function(fCplist){%>
+                <%-fCplist.pgContent%>
+                  <%})%>
+            </div>
+          </div>
+  </div>
+  <script src="js/product.js"></script>
+  <!--底部-->
+  <%- include('bottom')%>
+</body>
+
+</html>

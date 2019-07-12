@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%-include('head')%>
+</head>
+
+<body>
+    <!--头部-->
+    <header id="header">
+        <!--导航-->
+        <nav>
+            <%-include('indexLogo')%>
+            <%-include('menu')%>
+                <div id="menu-btn"></div>
+                <script src="js/menu.js"></script>
+        </nav>
+        <!--中间装饰-->
+        <div class="header-side">
+            <div class="side-left">
+                <span></span>
+                <span>BenYi technology</span>
+            </div>
+            <div class="scroll-bar">
+                <span></span>
+            </div>
+        </div>
+    </header>
+    <!--中间-->
+    <div>
+        <!--banner-->
+        <section class="banner">
+            <h2>本怡（深圳）科技有限公司</h2>
+            <p>BenYi (ShenZhen) technology co. LTD</p>
+            <div class="indicator">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div id="banner">
+                <%carousels.forEach(function(carousel){%>
+                    <img src="api/upload/download?fileName=<%=carousel.cslImg%>">
+                    <%})%>
+            </div>
+        </section>
+        <script src="js/index.js"></script>
+        <!--产品类型-->
+        <article>
+            <div class="nav-title cl">
+                <img class="fl" src="img/product.png">
+                <div class="fl">
+                    <h3>产品类型</h3>
+                    <p>Product Type</p>
+                </div>
+            </div>
+            <%cplists.forEach(function(cplist){%>
+                <%-cplist.pgContent%>
+            <%})%>
+        </article>
+        <!--案例展示-->
+        <section id="case">
+            <div class="nav-title cl">
+                <img class="fl" src="img/case.png">
+                <div class="fl">
+                    <h3>案例展示</h3>
+                    <p>Case Show</p>
+                </div>
+            </div>
+            <ul class="sase-show">
+                <%Exhibitions.forEach(function(Exhibition){%>
+                    <li>
+                        <a href="alzsView?id=<%=Exhibition.wzId%>">
+                            <div class="case-text">
+                                <h5>
+                                    <%=Exhibition.wzTitle%>
+                                </h5>
+                                <p>
+                                    <%-Exhibition.wzSummary%>
+                                </p>
+                            </div>
+                            <img src="api/upload/download?fileName=<%=Exhibition.wzThumb%>">
+                        </a>
+                    </li>
+                    <%})%>
+            </ul>
+        </section>
+        <!--新闻中心-->
+        <section id="new">
+            <div class="nav-title cl">
+                <img class="fl" src="img/new.png">
+                <div class="fl">
+                    <h3>新闻中心</h3>
+                    <p>New Center</p>
+                </div>
+            </div>
+            <div class="information-all">
+                <%news.forEach(function(newData){%>
+                    <a href="xwzxView?id=<%=newData.wzId%>">
+                        <div class="information">
+                            <div class="n-img">
+                                <img src="api/upload/download?fileName=<%=newData.wzThumb%>">
+                            </div>
+                            <div class="n-text">
+                                <h5>
+                                    <%=newData.wzTitle%>
+                                </h5>
+                                <div class="n-wire"></div>
+                                <p>
+                                    <%=newData.wzSummary%>
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                    <%})%>
+            </div>
+        </section>
+    </div>
+    <!--底部-->
+    <%-include('bottom')%>
+</body>
+
+</html>

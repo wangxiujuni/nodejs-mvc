@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%-include('head')%>
+</head>
+
+<body>
+    <!--头部-->
+    <header class="bg-color">
+        <!--导航-->
+        <nav class="bg-nav">
+            <h1>
+                <%-include('logo')%>
+            </h1>
+            <%-include('menu')%>
+                <div id="menu-btn"></div>
+                <script src="js/menu.js"></script>
+        </nav>
+        <div class="nav-f">
+            <p>当前位置：首页&nbsp;&gt;&nbsp;
+                <span>案例展示</span>
+            </p>
+        </div>
+    </header>
+    <!--内容-->
+    <div class="view">
+        <h4>
+            <%-ExhibitionInfo.wzSummary%>
+        </h4>
+        <img src="api/upload/download?fileName=<%=ExhibitionInfo.wzThumb%>%>" alt="">
+        <p>
+            <%-ExhibitionView.wzContent%>
+        </p>
+    </div>
+    <!--底部-->
+    <%-include('bottom')%>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<footer id="footer">
+  <div class="bottom">
+    <div class="bottom-logo">
+      <% contacts.forEach(function(contact){%>
+        <img src="api/upload/download?fileName=<%=contact.wzThumb%>">
+        <%-contact.wzSummary%>
+          <%})%>
+    </div>
+    <div class="bottom-link">
+      <p>友情链接</p>
+      <ul>
+        <%links.forEach(function(link){%>
+          <li>
+            <a href="<%=link.lnkUrl%>" target="<%=link.lnkTarget%>">
+              <%=link.lnkName%>
+            </a>
+          </li>
+          <%})%>
+      </ul>
+    </div>
+  </div>
+  <div class="partner">
+    <p>合作伙伴</p>
+    <ul class="cl">
+      <% cooperations.forEach(function(cooperation){ %>
+        <li>
+              <a href="<%=cooperation.wzHits%>">
+                <%-cooperation.wzSummary %>
+              </a>
+        </li>
+        <%})%>
+    </ul>
+  </div>
+  <div class="ba">
+    <% copyrights.forEach(function(copyright){%>
+      <p>
+        <%-copyright.wzSummary%>
+      </p>
+      <%})%>
+  </div>
+</footer>
